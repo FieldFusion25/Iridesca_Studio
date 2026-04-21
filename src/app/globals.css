@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #FBF8F2;
+    color: #1A1714;
+    font-family: var(--font-sans);
+    font-feature-settings: 'ss01', 'ss02', 'cv01';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Display serif — used for product names, headings */
+  h1, h2, h3, h4, .serif {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  /* Faint film grain on body background for warmth */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FBF8F2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #E8DFD0;
+    border: 2px solid #FBF8F2;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8B7B65;
+  }
+
+  ::selection {
+    background-color: #1A1714;
+    color: #FBF8F2;
+  }
+}
+
+@layer components {
+  /* Thin decorative divider */
+  .hairline {
+    height: 1px;
+    background-color: rgba(26, 23, 20, 0.12);
+  }
+
+  /* Uppercase micro-label */
+  .micro-label {
+    font-size: 0.6875rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Soft image-hover fade for product cards */
+  .product-image-fade img {
+    transition: opacity 600ms ease, transform 1200ms ease;
+  }
+  .product-image-fade:hover img.primary {
+    opacity: 0;
+  }
+  .product-image-fade:hover img.secondary {
+    opacity: 1;
+  }
+}
+
+/* Fade-in page loads */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 800ms ease forwards;
+}
+
+.fade-up-delay-1 { animation-delay: 100ms; opacity: 0; }
+.fade-up-delay-2 { animation-delay: 200ms; opacity: 0; }
+.fade-up-delay-3 { animation-delay: 300ms; opacity: 0; }
