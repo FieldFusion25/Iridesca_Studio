@@ -28,9 +28,9 @@ export default function CartPage() {
       });
       const data = await res.json();
       if (data.url) window.location.href = data.url;
-      else alert(data.error || 'Checkout fehlgeschlagen.');
+      else alert(data.error || 'Checkout failed.');
     } catch {
-      alert('Etwas ist schiefgegangen.');
+      alert('Something went wrong.');
     } finally {
       setLoading(false);
     }
@@ -40,18 +40,18 @@ export default function CartPage() {
     <div className="px-6 md:px-10 pt-12 pb-20">
       <div className="max-w-[1200px] mx-auto">
         <div className="text-center mb-12 md:mb-16">
-          <p className="micro-label text-stone mb-3">Warenkorb</p>
-          <h1 className="font-serif text-4xl md:text-6xl">Ihre Auswahl</h1>
+          <p className="micro-label text-stone mb-3">Cart</p>
+          <h1 className="font-serif text-4xl md:text-6xl">Your selection</h1>
         </div>
 
         {displayItems.length === 0 ? (
           <div className="text-center py-24">
-            <p className="font-serif text-2xl mb-6">Noch leer.</p>
+            <p className="font-serif text-2xl mb-6">Still empty.</p>
             <Link
               href="/shop"
               className="micro-label border-b border-ink pb-1 hover:text-stone transition-colors"
             >
-              Zur Sammlung →
+              To the collection →
             </Link>
           </div>
         ) : (
@@ -111,7 +111,7 @@ export default function CartPage() {
                         onClick={() => remove(item.slug)}
                         className="micro-label text-stone hover:text-ink transition-colors"
                       >
-                        Entfernen
+                        Remove
                       </button>
                     </div>
                   </div>
@@ -124,18 +124,18 @@ export default function CartPage() {
 
             {/* Summary */}
             <aside className="bg-shell p-8 h-fit md:sticky md:top-[100px]">
-              <p className="micro-label mb-5">Zusammenfassung</p>
+              <p className="micro-label mb-5">Summary</p>
               <div className="flex justify-between mb-2">
-                <span className="text-sm text-stone">Zwischensumme</span>
+                <span className="text-sm text-stone">Subtotal</span>
                 <span className="font-serif text-lg">{formatPrice(displayTotal)}</span>
               </div>
               <div className="flex justify-between mb-5">
-                <span className="text-sm text-stone">Versand</span>
-                <span className="text-sm text-stone">Im Checkout</span>
+                <span className="text-sm text-stone">Shipping</span>
+                <span className="text-sm text-stone">At checkout</span>
               </div>
               <div className="hairline mb-5" />
               <div className="flex justify-between items-baseline mb-8">
-                <span className="micro-label">Gesamt</span>
+                <span className="micro-label">Total</span>
                 <span className="font-serif text-2xl">{formatPrice(displayTotal)}</span>
               </div>
               <button
@@ -143,12 +143,12 @@ export default function CartPage() {
                 disabled={loading}
                 className="w-full bg-ink text-pearl py-4 micro-label hover:bg-stone transition-colors disabled:opacity-50"
               >
-                {loading ? 'Wird weitergeleitet…' : 'Zur Kasse'}
+                {loading ? 'Redirecting…' : 'Checkout'}
               </button>
               <p className="text-xs text-stone mt-4 text-center leading-relaxed">
-                Bezahlung sicher via Stripe.
+                Secure payment via Stripe.
                 <br />
-                Kreditkarte, Klarna, Apple Pay & mehr.
+                Card, Klarna, Apple Pay & more.
               </p>
             </aside>
           </div>

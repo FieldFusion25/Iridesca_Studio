@@ -15,23 +15,23 @@ function SuccessContent() {
   return (
     <div className="px-6 md:px-10 py-24 md:py-32">
       <div className="max-w-xl mx-auto text-center">
-        <p className="micro-label text-stone mb-6">Bestellung bestätigt</p>
+        <p className="micro-label text-stone mb-6">Order confirmed</p>
         <h1 className="font-serif text-4xl md:text-6xl mb-6 leading-tight">
-          Danke.
+          Thank you.
           <br />
-          <em className="italic font-light">Von Herzen.</em>
+          <em className="italic font-light">Truly.</em>
         </h1>
         <p className="text-[15px] leading-relaxed text-stone mb-10">
-          Ihre Bestellung ist bei uns eingegangen. Eine Bestätigung geht in
-          Kürze an die hinterlegte E-Mail-Adresse. Jedes Stück wird persönlich
-          verpackt und innerhalb von drei Werktagen aus Nürnberg versendet.
+          Your order has reached us. A confirmation is on its way to the email
+          address you provided. Every piece is packed personally and ships
+          within three business days from Nuremberg.
         </p>
         <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
           <Link
             href="/shop"
             className="micro-label border-b border-ink pb-1 hover:text-stone transition-colors"
           >
-            Zurück zur Sammlung
+            Back to the collection
           </Link>
         </div>
       </div>
@@ -41,7 +41,7 @@ function SuccessContent() {
 
 export default function SuccessPage() {
   return (
-    <Suspense fallback={<div className="py-24 text-center">Lädt…</div>}>
+    <Suspense fallback={<div className="py-24 text-center">Loading…</div>}>
       <SuccessContent />
     </Suspense>
   );

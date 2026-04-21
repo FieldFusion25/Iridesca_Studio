@@ -38,10 +38,10 @@ export default function CartDrawer() {
       if (data.url) {
         window.location.href = data.url;
       } else {
-        alert(data.error || 'Checkout fehlgeschlagen.');
+        alert(data.error || 'Checkout failed.');
       }
     } catch (err) {
-      alert('Etwas ist schiefgegangen. Bitte erneut versuchen.');
+      alert('Something went wrong. Please try again.');
     } finally {
       setCheckoutLoading(false);
     }
@@ -67,29 +67,29 @@ export default function CartDrawer() {
         } flex flex-col`}
       >
         <div className="flex items-center justify-between px-6 py-5 border-b border-ink/10">
-          <span className="micro-label">Warenkorb ({displayItems.length})</span>
+          <span className="micro-label">Cart ({displayItems.length})</span>
           <button
             onClick={() => setOpen(false)}
             className="micro-label hover:text-ink transition-colors"
-            aria-label="Schließen"
+            aria-label="Close"
           >
-            Schließen
+            Close
           </button>
         </div>
 
         <div className="flex-1 overflow-y-auto px-6 py-6">
           {displayItems.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center gap-3 py-24">
-              <div className="font-serif text-2xl">Noch leer.</div>
+              <div className="font-serif text-2xl">Still empty.</div>
               <p className="text-sm text-stone max-w-[260px]">
-                Die schönsten Stücke finden ihren Weg von selbst.
+                The right pieces find their way on their own.
               </p>
               <Link
                 href="/shop"
                 onClick={() => setOpen(false)}
                 className="micro-label mt-4 border-b border-ink pb-1 hover:text-stone transition-colors"
               >
-                Zum Shop
+                To the shop
               </Link>
             </div>
           ) : (
@@ -148,7 +148,7 @@ export default function CartDrawer() {
                         onClick={() => remove(item.slug)}
                         className="micro-label text-stone hover:text-ink transition-colors"
                       >
-                        Entfernen
+                        Remove
                       </button>
                     </div>
                   </div>
@@ -161,25 +161,25 @@ export default function CartDrawer() {
         {displayItems.length > 0 && (
           <div className="border-t border-ink/10 px-6 py-6">
             <div className="flex justify-between mb-1">
-              <span className="micro-label">Zwischensumme</span>
+              <span className="micro-label">Subtotal</span>
               <span className="font-serif text-lg">{formatPrice(displayTotal)}</span>
             </div>
             <p className="text-xs text-stone mb-5">
-              Versand wird im nächsten Schritt berechnet.
+              Shipping is calculated at the next step.
             </p>
             <button
               onClick={handleCheckout}
               disabled={checkoutLoading}
               className="w-full bg-ink text-pearl py-4 micro-label hover:bg-stone transition-colors disabled:opacity-50"
             >
-              {checkoutLoading ? 'Wird weitergeleitet…' : 'Zur Kasse'}
+              {checkoutLoading ? 'Redirecting…' : 'Checkout'}
             </button>
             <Link
               href="/cart"
               onClick={() => setOpen(false)}
               className="block text-center mt-3 micro-label text-stone hover:text-ink transition-colors"
             >
-              Warenkorb ansehen
+              View cart
             </Link>
           </div>
         )}

@@ -61,7 +61,7 @@ export default function Header() {
         <button
           onClick={() => setOpen(true)}
           className={`absolute right-6 md:right-10 top-1/2 -translate-y-1/2 micro-label transition-colors duration-700 ${cartColor}`}
-          aria-label="Warenkorb öffnen"
+          aria-label="Open cart"
         >
           CART ({count})
         </button>
@@ -72,8 +72,8 @@ export default function Header() {
       >
         <Link href="/" className="nav-link">Home</Link>
         <Link href="/shop" className="nav-link">Shop</Link>
-        <Link href="/contact" className="nav-link">Kontakt</Link>
-        <Link href="/versand" className="nav-link">Versand & Rückgabe</Link>
+        <Link href="/contact" className="nav-link">Contact</Link>
+        <Link href="/versand" className="nav-link">Shipping & Returns</Link>
       </nav>
     </header>
   );

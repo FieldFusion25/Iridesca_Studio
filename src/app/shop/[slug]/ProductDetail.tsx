@@ -24,9 +24,7 @@ export default function ProductDetail({ product }: { product: Product }) {
     setTimeout(() => setAdded(false), 2000);
   };
 
-  const related = products
-    .filter((p) => p.slug !== product.slug && p.category === product.category)
-    .slice(0, 3);
+  const related = products.filter((p) => p.slug !== product.slug).slice(0, 3);
 
   return (
     <div className="px-6 md:px-10 pt-8 pb-20">
@@ -37,12 +35,7 @@ export default function ProductDetail({ product }: { product: Product }) {
             Shop
           </Link>
           <span className="mx-2">/</span>
-          <Link
-            href={`/shop?kategorie=${product.category}`}
-            className="hover:text-ink transition-colors"
-          >
-            {product.category}
-          </Link>
+          <span className="text-ink/60">{product.name}</span>
         </nav>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-16">
@@ -85,7 +78,6 @@ export default function ProductDetail({ product }: { product: Product }) {
 
           {/* Info */}
           <div className="md:sticky md:top-[100px] md:self-start">
-            <p className="micro-label text-stone mb-3">{product.category}</p>
             <h1 className="font-serif text-3xl md:text-5xl leading-tight mb-5">
               {product.name}
             </h1>
@@ -118,14 +110,14 @@ export default function ProductDetail({ product }: { product: Product }) {
               }`}
             >
               {product.soldOut
-                ? 'Nicht mehr verfügbar'
+                ? 'No longer available'
                 : added
-                ? 'In den Warenkorb gelegt ✓'
-                : 'In den Warenkorb'}
+                ? 'Added to cart ✓'
+                : 'Add to cart'}
             </button>
 
             <p className="text-xs text-stone mt-4">
-              Einzelstück. Versand innerhalb von 3 Werktagen aus Nürnberg.
+              One of a kind. Ships within 3 business days from Nuremberg.
             </p>
 
             {/* Details */}
@@ -142,11 +134,10 @@ export default function ProductDetail({ product }: { product: Product }) {
             </div>
 
             <div className="mt-8 border-t border-ink/10 pt-8">
-              <p className="micro-label mb-3">Versand & Rückgabe</p>
+              <p className="micro-label mb-3">Shipping & Returns</p>
               <p className="text-[14px] text-stone leading-relaxed">
-                Versicherter Versand in Deutschland inklusive. EU-weit auf
-                Anfrage. Rückgabe innerhalb von 14 Tagen ohne Angabe von
-                Gründen.
+                Insured shipping within Germany included. EU and international on
+                request. Returns accepted within 14 days, no questions asked.
               </p>
             </div>
           </div>
@@ -156,7 +147,7 @@ export default function ProductDetail({ product }: { product: Product }) {
         {related.length > 0 && (
           <div className="mt-32">
             <h2 className="font-serif text-3xl text-center mb-12">
-              In derselben Vitrine
+              From the same vitrine
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 md:gap-x-10 md:gap-y-20">
               {related.map((p) => (

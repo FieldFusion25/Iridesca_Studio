@@ -27,9 +27,9 @@ const pinyon = Pinyon_Script({
 });
 
 export const metadata: Metadata = {
-  title: 'Iridesca Studio — Muscheltaschen & Vintage Objekte aus Perlmutt',
+  title: 'Iridesca Studio — Mother-of-Pearl Clutches & Vintage Objects',
   description:
-    'Kuratierte Vintage-Sammlung: Muscheltaschen, Perlmutt-Löffel, seltene Objekte. Jedes Stück handverlesen.',
+    'A curated vintage collection of mother-of-pearl clutches, spoons and rare objects. Each piece hand-picked.',
 };
 
 export default function RootLayout({
@@ -38,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de" className={`${cormorant.variable} ${inter.variable} ${pinyon.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${inter.variable} ${pinyon.variable}`}>
       <body className="relative">
         <Header />
         <CartDrawer />

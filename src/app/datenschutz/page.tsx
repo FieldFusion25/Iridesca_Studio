@@ -1,23 +1,23 @@
-export default function Datenschutz() {
+export default function Privacy() {
   return (
     <div className="px-6 md:px-10 pt-12 pb-24">
       <div className="max-w-2xl mx-auto">
-        <p className="micro-label text-stone mb-3">Datenschutz</p>
-        <h1 className="font-serif text-4xl md:text-5xl mb-10">Datenschutzerklärung</h1>
+        <p className="micro-label text-stone mb-3">Privacy</p>
+        <h1 className="font-serif text-4xl md:text-5xl mb-10">Privacy Policy</h1>
         <div className="text-[15px] leading-relaxed text-stone space-y-6">
           <p>
-            Diese Seite ist ein Platzhalter. Vor Go-Live muss hier eine vollständige
-            Datenschutzerklärung nach DSGVO stehen, die insbesondere folgende
-            Verarbeitungen abdeckt:
+            This page is a placeholder. Before launch, a complete GDPR privacy
+            policy must be published here, covering at minimum the following
+            processing activities:
           </p>
           <ul className="list-disc pl-5 space-y-2">
-            <li>Bestellabwicklung via Stripe (Drittland-Transfer USA)</li>
-            <li>Server-Logs des Hosting-Providers (Vercel)</li>
-            <li>Kontaktformular</li>
-            <li>Cookies / Local Storage (Warenkorb)</li>
+            <li>Order processing via Stripe (third-country transfer to the USA)</li>
+            <li>Server logs of the hosting provider (Vercel)</li>
+            <li>Contact form</li>
+            <li>Cookies / local storage (shopping cart)</li>
           </ul>
           <p>
-            Empfehlung: Generator wie{' '}
+            Recommendation: use a generator such as{' '}
             <a
               href="https://www.e-recht24.de/muster-datenschutzerklaerung.html"
               className="underline hover:text-ink"
@@ -26,7 +26,7 @@ export default function Datenschutz() {
             >
               e-recht24
             </a>{' '}
-            oder anwaltliche Prüfung.
+            or have it reviewed by a lawyer.
           </p>
         </div>
       </div>
