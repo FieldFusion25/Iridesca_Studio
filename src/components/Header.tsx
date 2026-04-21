@@ -28,6 +28,11 @@ export default function Header() {
   }, []);
 
   const floating = isHome && !scrolled;
+  const logoColor = floating ? 'text-pearl' : 'text-ink';
+  const navColor = floating ? 'text-pearl/90' : 'text-ink/80';
+  const cartColor = floating
+    ? 'text-pearl/90 hover:text-pearl'
+    : 'text-ink/80 hover:text-ink';
 
   return (
     <header
@@ -40,10 +45,13 @@ export default function Header() {
       <div className="relative flex items-center justify-center pt-6 pb-3 px-6">
         <Link href="/" className="leading-none">
           <span
-            className="text-[42px] md:text-[54px] tracking-normal text-ink"
+            className={`text-[42px] md:text-[54px] tracking-normal transition-colors duration-700 ${logoColor}`}
             style={{
               fontFamily: "var(--font-script), 'Great Vibes', cursive",
               fontWeight: 400,
+              textShadow: floating
+                ? '0 2px 18px rgba(0,0,0,0.25)'
+                : 'none',
             }}
           >
             Iridesca Studio
@@ -52,14 +60,16 @@ export default function Header() {
 
         <button
           onClick={() => setOpen(true)}
-          className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 micro-label text-ink/80 hover:text-ink transition-colors"
+          className={`absolute right-6 md:right-10 top-1/2 -translate-y-1/2 micro-label transition-colors duration-700 ${cartColor}`}
           aria-label="Warenkorb öffnen"
         >
           CART ({count})
         </button>
       </div>
 
-      <nav className="flex items-center justify-center gap-8 md:gap-14 pb-5 pt-1 text-[11px] tracking-[0.24em] uppercase font-medium text-ink/80 overflow-x-auto whitespace-nowrap px-6">
+      <nav
+        className={`flex items-center justify-center gap-8 md:gap-14 pb-5 pt-1 text-[11px] tracking-[0.24em] uppercase font-medium overflow-x-auto whitespace-nowrap px-6 transition-colors duration-700 ${navColor}`}
+      >
         <Link href="/" className="nav-link">Home</Link>
         <Link href="/shop" className="nav-link">Shop</Link>
         <Link href="/contact" className="nav-link">Kontakt</Link>

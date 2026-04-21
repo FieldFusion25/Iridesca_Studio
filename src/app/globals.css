@@ -145,7 +145,8 @@
 /* Navbar link underline */
 .nav-link {
   position: relative;
-  transition: color 300ms ease;
+  transition: opacity 300ms ease;
+  opacity: 0.85;
 }
 .nav-link::after {
   content: '';
@@ -160,7 +161,7 @@
   transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .nav-link:hover {
-  color: #1A1714;
+  opacity: 1;
 }
 .nav-link:hover::after {
   transform: scaleX(1);
