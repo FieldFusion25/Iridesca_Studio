@@ -19,10 +19,10 @@ export default function Home() {
       <section className="px-4 md:px-8">
         <Link
           href="/shop"
-          className="block relative w-full aspect-[16/10] md:aspect-[16/9] bg-shell overflow-hidden group"
+          className="block relative w-full aspect-[16/10] md:aspect-[16/9] bg-ink overflow-hidden group"
         >
           <Image
-            src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=2800&q=90"
+            src="/img/hero.jpeg"
             alt="Iridesca Studio"
             fill
             priority
