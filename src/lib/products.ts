@@ -18,7 +18,7 @@ export type Product = {
 export const products: Product[] = [
   {
     slug: 'caviar-spoons-horn-pearl',
-    name: 'Caviar Spoons — Horn & Mother-of-Pearl',
+    name: 'PETITE SHELL SPOONS — SET OF 4',
     price: 26000, // placeholder — to be confirmed
     currency: 'eur',
     description:
@@ -38,7 +38,7 @@ export const products: Product[] = [
   },
   {
     slug: 'pearl-curios-trio',
-    name: 'Mother-of-Pearl Curios — Trio',
+    name: 'MOTHER-OF-PEARL CURIOS — TRIO',
     price: 18000, // placeholder
     currency: 'eur',
     description:
@@ -59,7 +59,7 @@ export const products: Product[] = [
   },
   {
     slug: 'pearl-shell-clutch',
-    name: 'Mother-of-Pearl Clutch with Silver Chain',
+    name: 'MOTHER-OF-PEARL CLUTCH WITH SILVER CHAIN',
     price: 46000, // placeholder
     currency: 'eur',
     description:
@@ -81,7 +81,7 @@ export const products: Product[] = [
   },
   {
     slug: 'pearl-shell-clutch-mini',
-    name: 'Mother-of-Pearl Clutch — Mini',
+    name: 'MOTHER-OF-PEARL CLUTCH — MINI',
     price: 32000, // placeholder — to be confirmed
     currency: 'eur',
     description:
@@ -103,7 +103,7 @@ export const products: Product[] = [
   },
   {
     slug: 'pearl-teaspoons-four',
-    name: 'Mother-of-Pearl Tea Spoons — Set of Four',
+    name: 'MOTHER-OF-PEARL TEA SPOONS — SET OF FOUR',
     price: 17000, // placeholder
     currency: 'eur',
     description:

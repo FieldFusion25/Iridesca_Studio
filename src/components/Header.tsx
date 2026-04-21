@@ -72,6 +72,7 @@ export default function Header() {
       >
         <Link href="/" className="nav-link">Home</Link>
         <Link href="/shop" className="nav-link">Shop</Link>
+        <Link href="/meaning" className="nav-link">The Name</Link>
         <Link href="/contact" className="nav-link">Contact</Link>
         <Link href="/versand" className="nav-link">Shipping & Returns</Link>
       </nav>

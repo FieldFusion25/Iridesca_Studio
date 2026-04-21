@@ -38,7 +38,7 @@ export default function ProductCard({ product }: { product: Product }) {
         )}
       </div>
       <div className="mt-3 text-center">
-        <h3 className="font-serif text-[17px] md:text-[18px] leading-tight text-ink">
+        <h3 className="font-serif text-[24px] leading-tight text-ink">
           {product.name}
         </h3>
         <div className="mt-1 text-[13px] text-stone">
