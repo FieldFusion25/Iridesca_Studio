@@ -31,8 +31,15 @@ export default function Home() {
           href="/shop"
           className="group mt-10 md:mt-14 inline-flex items-center gap-4 px-10 md:px-12 py-4 border border-pearl/70 text-pearl micro-label backdrop-blur-[2px] hover:bg-pearl hover:text-ink hover:border-pearl transition-all duration-500 animate-hero-fade [animation-delay:1100ms] opacity-0"
         >
-          Explore now
-          <span className="transition-transform duration-500 group-hover:translate-x-1.5">→</span>
+          <Image
+            src="/img/hero2.jpeg"
+            alt="Iridesca Studio"
+            fill
+            priority
+            quality={95}
+            sizes="100vw"
+            className="object-cover transition-transform duration-[1500ms] group-hover:scale-[1.02]"
+          />
         </Link>
       </div>
 
