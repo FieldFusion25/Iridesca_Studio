@@ -13,7 +13,7 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const product = findProduct(slug);
-  if (!product) return { title: 'Nicht gefunden — Iridesca Studio' };
+  if (!product) return { title: 'Not found — Iridesca Studio' };
   return {
     title: `${product.name} — Iridesca Studio`,
     description: product.description,

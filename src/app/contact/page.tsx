@@ -7,7 +7,7 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Placeholder — in production connect to your mail service
+    // Placeholder — in production, connect to your mail service
     setSent(true);
   };
 
@@ -15,22 +15,22 @@ export default function ContactPage() {
     <div className="px-6 md:px-10 pt-12 pb-24">
       <div className="max-w-[900px] mx-auto">
         <div className="text-center mb-16">
-          <p className="micro-label text-stone mb-3">Kontakt</p>
-          <h1 className="font-serif text-4xl md:text-6xl">Schreiben Sie uns</h1>
+          <p className="micro-label text-stone mb-3">Contact</p>
+          <h1 className="font-serif text-4xl md:text-6xl">Write to us</h1>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           {/* Info */}
           <div>
             <p className="text-[15px] leading-relaxed text-stone mb-8">
-              Fragen zu einem Stück? Auf der Suche nach etwas Bestimmtem?
-              Schreiben Sie uns — wir antworten innerhalb von zwei Werktagen,
-              persönlich.
+              Questions about a specific piece? Looking for something in
+              particular? Write to us — we reply within two business days,
+              personally.
             </p>
 
             <div className="space-y-6">
               <div>
-                <p className="micro-label mb-1">E-Mail</p>
+                <p className="micro-label mb-1">Email</p>
                 <a
                   href="mailto:hallo@iridesca-studio.de"
                   className="font-serif text-lg hover:text-stone transition-colors"
@@ -39,19 +39,19 @@ export default function ContactPage() {
                 </a>
               </div>
               <div>
-                <p className="micro-label mb-1">Atelier</p>
+                <p className="micro-label mb-1">Studio</p>
                 <p className="font-serif text-lg leading-tight">
-                  Nürnberg, Deutschland
+                  Nuremberg, Germany
                   <br />
-                  <span className="text-stone text-[15px]">Besuche nach Vereinbarung</span>
+                  <span className="text-stone text-[15px]">Visits by appointment</span>
                 </p>
               </div>
               <div>
-                <p className="micro-label mb-1">Antiquariat & Sourcing</p>
+                <p className="micro-label mb-1">Sourcing & estates</p>
                 <p className="text-[14px] leading-relaxed text-stone">
-                  Sie haben etwas, das zu uns passen könnte? Wir kaufen
-                  einzelne Stücke und ganze Nachlässe im Bereich Muschel,
-                  Perlmutt und Vintage-Accessoires.
+                  Do you own something that might belong here? We purchase
+                  individual pieces and whole estates in the fields of shell,
+                  mother-of-pearl and vintage accessories.
                 </p>
               </div>
             </div>
@@ -61,8 +61,8 @@ export default function ContactPage() {
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             {sent ? (
               <div className="bg-shell p-8 text-center">
-                <p className="font-serif text-2xl mb-2">Danke.</p>
-                <p className="text-sm text-stone">Wir melden uns in Kürze.</p>
+                <p className="font-serif text-2xl mb-2">Thank you.</p>
+                <p className="text-sm text-stone">We'll be in touch shortly.</p>
               </div>
             ) : (
               <>
@@ -75,7 +75,7 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <label className="micro-label block mb-2">E-Mail</label>
+                  <label className="micro-label block mb-2">Email</label>
                   <input
                     required
                     type="email"
@@ -83,7 +83,7 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <label className="micro-label block mb-2">Nachricht</label>
+                  <label className="micro-label block mb-2">Message</label>
                   <textarea
                     required
                     rows={5}
@@ -94,7 +94,7 @@ export default function ContactPage() {
                   type="submit"
                   className="mt-4 self-start bg-ink text-pearl px-8 py-3 micro-label hover:bg-stone transition-colors"
                 >
-                  Nachricht senden
+                  Send message
                 </button>
               </>
             )}

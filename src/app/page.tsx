@@ -6,7 +6,7 @@ export default function Home() {
     <section className="relative -mt-[128px] md:-mt-[148px] h-[100svh] min-h-[640px] w-full overflow-hidden bg-ink">
       <Image
         src="/img/hero.jpeg"
-        alt="Iridesca Studio — Perlmutt & Muschel"
+        alt="Iridesca Studio — mother-of-pearl shell"
         fill
         priority
         quality={95}
@@ -21,12 +21,12 @@ export default function Home() {
 
       <div className="absolute inset-x-0 bottom-[16%] md:bottom-[20%] flex flex-col items-center text-center px-6 text-pearl">
         <span className="micro-label text-pearl/75 animate-hero-fade [animation-delay:500ms] opacity-0">
-          Nürnberg · Seit 2024
+          Nuremberg · Est. 2024
         </span>
 
         <h1 className="font-serif text-[34px] md:text-6xl leading-[1.08] mt-5 md:mt-7 max-w-[720px] animate-hero-fade [animation-delay:800ms] opacity-0 drop-shadow-[0_2px_20px_rgba(0,0,0,0.35)]">
-          Perlmutt, handverlesen.<br />
-          <span className="italic text-pearl/90">Zeitlos, zerbrechlich, wahr.</span>
+          Mother-of-pearl, hand-picked.<br />
+          <span className="italic text-pearl/90">Timeless, fragile, true.</span>
         </h1>
 
         <Link

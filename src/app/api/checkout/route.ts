@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     const secret = process.env.STRIPE_SECRET_KEY;
     if (!secret) {
       return NextResponse.json(
-        { error: 'Stripe ist nicht konfiguriert. STRIPE_SECRET_KEY fehlt.' },
+        { error: 'Stripe is not configured. STRIPE_SECRET_KEY is missing.' },
         { status: 500 }
       );
     }
@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     const items: { slug: string; quantity: number }[] = body.items ?? [];
 
     if (!Array.isArray(items) || items.length === 0) {
-      return NextResponse.json({ error: 'Warenkorb ist leer.' }, { status: 400 });
+      return NextResponse.json({ error: 'Cart is empty.' }, { status: 400 });
     }
 
     const line_items = items
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
 
     if (line_items.length === 0) {
       return NextResponse.json(
-        { error: 'Keines der Produkte ist verfügbar.' },
+        { error: 'None of the products are available.' },
         { status: 400 }
       );
     }
@@ -71,7 +71,7 @@ export async function POST(req: Request) {
           shipping_rate_data: {
             type: 'fixed_amount',
             fixed_amount: { amount: 890, currency: 'eur' },
-            display_name: 'Versand Deutschland',
+            display_name: 'Shipping — Germany',
             delivery_estimate: {
               minimum: { unit: 'business_day', value: 2 },
               maximum: { unit: 'business_day', value: 4 },
@@ -82,7 +82,7 @@ export async function POST(req: Request) {
           shipping_rate_data: {
             type: 'fixed_amount',
             fixed_amount: { amount: 1890, currency: 'eur' },
-            display_name: 'Versand EU & UK',
+            display_name: 'Shipping — EU & UK',
             delivery_estimate: {
               minimum: { unit: 'business_day', value: 4 },
               maximum: { unit: 'business_day', value: 8 },
@@ -90,7 +90,7 @@ export async function POST(req: Request) {
           },
         },
       ],
-      locale: 'de',
+      locale: 'en',
       billing_address_collection: 'required',
       allow_promotion_codes: true,
     });
@@ -99,7 +99,7 @@ export async function POST(req: Request) {
   } catch (err) {
     console.error('[checkout]', err);
     return NextResponse.json(
-      { error: 'Checkout konnte nicht erstellt werden.' },
+      { error: 'Could not create a checkout session.' },
       { status: 500 }
     );
   }

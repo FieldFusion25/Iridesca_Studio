@@ -4,7 +4,6 @@ export type Product = {
   price: number; // EUR in cents
   originalPrice?: number;
   currency: 'eur';
-  category: 'Taschen' | 'Besteck' | 'Objekte' | 'Schmuck';
   description: string;
   details: string[];
   images: string[];
@@ -12,165 +11,82 @@ export type Product = {
   onSale?: boolean;
 };
 
-// Unsplash photo IDs hand-picked for the mood:
-// warm off-white backgrounds, vintage, pearl/shell, editorial stillife.
-const img = (id: string, w = 1600) =>
-  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
+// Drop product photos into:
+//   public/img/products/<slug>/01.jpg, 02.jpg, ...
+// The first image is the card's primary; the second is shown on hover.
 
 export const products: Product[] = [
   {
-    slug: 'muscheltasche-perlmutt-coquille',
-    name: 'Perlmutt Coquille Handtasche',
-    price: 48000,
+    slug: 'caviar-spoons-horn-pearl',
+    name: 'Caviar Spoons — Horn & Mother-of-Pearl',
+    price: 26000, // placeholder — to be confirmed
     currency: 'eur',
-    category: 'Taschen',
     description:
-      'Handgefertigte Abendtasche aus natürlicher Perlmutt, gefasst in einem schlanken Messingrahmen. Ein ruhiges, schimmerndes Objekt — nicht laut, nicht glatt, sondern still und wertvoll.',
+      "A set of four caviar spoons in which mother-of-pearl meets blackened horn. The handle dark as ink, set with three silver studs and finished with a slender brass ferrule — the bowl a quiet, cool shimmer. Pearl doesn't taint the flavour; horn gives the hand a place to rest. A small, considered ceremony.",
     details: [
-      'Natürliches Perlmutt, individuell verlesen',
-      'Messingverschluss, handpoliert',
-      'Innenfutter aus Seide',
-      'Italien, vermutlich 1960er',
-      'ca. 22 × 14 × 6 cm',
+      'Mother-of-pearl bowl, horn handle with three silver studs',
+      'Hand-polished brass ferrule',
+      'Length approx. 10 cm',
+      'France, early 20th century',
+      'Hand wash, lukewarm water',
     ],
     images: [
-      img('photo-1590874103328-eac38a683ce7'),
-      img('photo-1584917865442-de89df76afd3'),
+      '/img/products/caviar-spoons-horn-pearl/01.jpg',
     ],
   },
   {
-    slug: 'perlmutt-loeffel-set-sechs',
-    name: 'Perlmutt Löffel — Set zu Sechs',
-    price: 22000,
+    slug: 'pearl-curios-trio',
+    name: 'Mother-of-Pearl Curios — Trio',
+    price: 18000, // placeholder
     currency: 'eur',
-    category: 'Besteck',
     description:
-      'Sechs Kaviarlöffel aus massiver Perlmuschel. Klassisch serviert — weil Metall den Geschmack von Kaviar verändert, Perlmutt nicht. Ein Detail, das alles entscheidet.',
+      'Three small creatures of pearl: a hand-carved fish with fine ribs, a hair clip whose metal has been gentled by the shell, and a cabochon cut from a single piece of natural shell. Each catches the light differently — all three come from the same quiet world. The silver tray shown in the photograph is a prop and is not included.',
     details: [
-      'Massive Perlmutt, einteilig geschnitten',
-      'Länge: 9,5 cm',
-      'Frankreich, frühes 20. Jahrhundert',
-      'Handwäsche, lauwarmes Wasser',
+      'Fish: hand-carved mother-of-pearl, approx. 7 cm',
+      'Hair clip: mother-of-pearl with metal clasp, approx. 6 cm',
+      'Cabochon: natural mother-of-pearl, approx. 5 cm',
+      'Europe, likely 1930s–1950s',
+      'Each piece unique — visible patina throughout',
     ],
     images: [
-      img('photo-1587049352846-4a222e784d38'),
-      img('photo-1506629082955-511b1aa562c8'),
+      '/img/products/pearl-curios-trio/01.jpg',
     ],
   },
   {
-    slug: 'vintage-kauri-muschel-clutch',
-    name: 'Kauri Clutch',
-    price: 32000,
+    slug: 'pearl-shell-clutch',
+    name: 'Mother-of-Pearl Clutch with Silver Chain',
+    price: 46000, // placeholder
     currency: 'eur',
-    category: 'Taschen',
     description:
-      'Clutch aus geflochtenen Kaurimuscheln auf Baumwollgeflecht. Eine Arbeit, die man nur noch selten sieht — jedes Stück braucht Tage, keine Stunden.',
+      'An evening clutch cut from a single mother-of-pearl shell, set into a chased silver-tone frame with a beaded rim. The long link chain carries it over the shoulder or lets it rest in the hand. Light, cool, unmistakable — the colour shifts with every turn of the wrist.',
     details: [
-      'Kaurimuscheln auf Baumwollgeflecht',
-      'Kordelverschluss',
-      'ca. 28 × 18 cm',
-      'Handwerk, Westafrika 1970er',
+      'Natural mother-of-pearl shell, single piece',
+      'Silver-tone metal frame with beaded ornament',
+      'Detachable link chain, approx. 120 cm',
+      'Fabric-lined interior',
+      'Approx. 18 × 13 × 3 cm',
+      'Vintage, mid-20th century',
     ],
     images: [
-      img('photo-1612290533196-7d8ba0bf5929'),
-      img('photo-1584917865442-de89df76afd3'),
+      '/img/products/pearl-shell-clutch/01.jpg',
     ],
   },
   {
-    slug: 'abalone-servierbesteck-paar',
-    name: 'Abalone Servierbesteck',
-    price: 18000,
+    slug: 'pearl-teaspoons-four',
+    name: 'Mother-of-Pearl Tea Spoons — Set of Four',
+    price: 17000, // placeholder
     currency: 'eur',
-    category: 'Besteck',
     description:
-      'Ein Paar große Servierlöffel aus Abalone-Muschel mit silbermontierten Griffen. Für kalte Saucen, Tartar, alles wo Reinheit zählt.',
+      'Four tea spoons, each cut in one piece from solid mother-of-pearl. The surface breaks the light in soft waves — every spoon a small fragment of the sea held in the hand. For caviar, tartare, sweetened rice — or a tea where metal simply has no place.',
     details: [
-      'Abalone-Muschel und 925 Silber',
-      'Länge: 24 cm',
-      'England, um 1920',
-      'Punzen erhalten',
+      'Solid mother-of-pearl, cut in one piece',
+      'Length approx. 11 cm',
+      'France, early 20th century',
+      'Hand wash, lukewarm water',
+      'Four individual pieces — slight colour variation is natural',
     ],
     images: [
-      img('photo-1563822249366-3efb23b8e0c9'),
-      img('photo-1506629082955-511b1aa562c8'),
-    ],
-    onSale: true,
-    originalPrice: 24000,
-  },
-  {
-    slug: 'perlmutt-zigarettenetui',
-    name: 'Perlmutt Etui',
-    price: 28000,
-    currency: 'eur',
-    category: 'Objekte',
-    description:
-      'Etui aus intarsiertem Perlmutt und geschwärztem Messing. Heute für Visitenkarten, einst für ganz andere Zeremonien.',
-    details: [
-      'Perlmutt-Intarsien auf Messing',
-      'Federmechanismus funktional',
-      'ca. 9 × 6 × 1,5 cm',
-      'Wien, 1930er',
-    ],
-    images: [
-      img('photo-1590086783191-a0694c7d1e6e'),
-      img('photo-1584917865442-de89df76afd3'),
-    ],
-  },
-  {
-    slug: 'muschelkette-natur',
-    name: 'Halskette — Natürliche Muscheln',
-    price: 14000,
-    currency: 'eur',
-    category: 'Schmuck',
-    description:
-      'Lange Kette aus natürlichen, ungefärbten Muschelstücken auf Seidenfaden. Trägt sich wie ein Versprechen ans Meer.',
-    details: [
-      'Natürliche Muschelstücke',
-      'Seidenfaden, handgeknüpft',
-      'Länge: 82 cm',
-      'Italien, 1960er',
-    ],
-    images: [
-      img('photo-1599643478518-a784e5dc4c8f'),
-      img('photo-1612290533196-7d8ba0bf5929'),
-    ],
-  },
-  {
-    slug: 'perlmutt-schatulle',
-    name: 'Perlmutt Schatulle',
-    price: 62000,
-    currency: 'eur',
-    category: 'Objekte',
-    description:
-      'Schatulle mit Perlmutt-Einlagen auf Mahagoni, Samt-Innenraum. Ursprünglich für Schmuck, hält heute, was sie soll: das Wertvolle ruhig.',
-    details: [
-      'Mahagoni, Perlmutt, Samt',
-      'ca. 18 × 12 × 8 cm',
-      'Frankreich, 19. Jahrhundert',
-      'Schloss und Schlüssel funktional',
-    ],
-    images: [
-      img('photo-1590086783191-a0694c7d1e6e'),
-      img('photo-1587049352846-4a222e784d38'),
-    ],
-    soldOut: true,
-  },
-  {
-    slug: 'seashell-teelicht-paar',
-    name: 'Muschel Teelicht — Paar',
-    price: 9800,
-    currency: 'eur',
-    category: 'Objekte',
-    description:
-      'Zwei große Natur-Muscheln, sorgsam poliert, als Teelichthalter. Das Licht fällt durch sie hindurch und wird dadurch weich.',
-    details: [
-      'Natürliche Muschel, poliert',
-      'ca. 14 cm Durchmesser',
-      'Mittelmeerraum, zeitgenössisch',
-    ],
-    images: [
-      img('photo-1599643478518-a784e5dc4c8f'),
-      img('photo-1612290533196-7d8ba0bf5929'),
+      '/img/products/pearl-teaspoons-four/01.jpg',
     ],
   },
 ];
@@ -180,7 +96,7 @@ export function findProduct(slug: string) {
 }
 
 export function formatPrice(cents: number) {
-  return new Intl.NumberFormat('de-DE', {
+  return new Intl.NumberFormat('en-GB', {
     style: 'currency',
     currency: 'EUR',
     minimumFractionDigits: 0,
