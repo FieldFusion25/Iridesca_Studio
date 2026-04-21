@@ -2,12 +2,15 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { useCart } from '@/store/cart';
 
 export default function Header() {
   const setOpen = useCart((s) => s.setOpen);
   const [count, setCount] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const unsub = useCart.subscribe((state) =>
@@ -18,21 +21,22 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 4);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const floating = isHome && !scrolled;
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-pearl/95 backdrop-blur-sm border-b border-ink/10'
-          : 'bg-pearl border-b border-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+        floating
+          ? 'bg-transparent border-b border-transparent'
+          : 'bg-pearl/90 backdrop-blur-md border-b border-ink/10'
       }`}
     >
-      {/* Row 1: logo centered, cart top-right */}
       <div className="relative flex items-center justify-center pt-6 pb-3 px-6">
         <Link href="/" className="leading-none">
           <span
@@ -55,16 +59,11 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Row 2: horizontal nav centered */}
-      <nav className="flex items-center justify-center gap-5 md:gap-9 pb-5 pt-1 text-[11px] tracking-[0.22em] uppercase font-medium text-ink/80 overflow-x-auto whitespace-nowrap px-6">
-        <Link href="/" className="hover:text-ink transition-colors">Home</Link>
-        <Link href="/shop" className="hover:text-ink transition-colors">Shop</Link>
-        <Link href="/shop?kategorie=Taschen" className="hover:text-ink transition-colors">Taschen</Link>
-        <Link href="/shop?kategorie=Besteck" className="hover:text-ink transition-colors">Besteck</Link>
-        <Link href="/shop?kategorie=Objekte" className="hover:text-ink transition-colors">Objekte</Link>
-        <Link href="/shop?kategorie=Schmuck" className="hover:text-ink transition-colors">Schmuck</Link>
-        <Link href="/about" className="hover:text-ink transition-colors">Atelier</Link>
-        <Link href="/contact" className="hover:text-ink transition-colors">Kontakt</Link>
+      <nav className="flex items-center justify-center gap-8 md:gap-14 pb-5 pt-1 text-[11px] tracking-[0.24em] uppercase font-medium text-ink/80 overflow-x-auto whitespace-nowrap px-6">
+        <Link href="/" className="nav-link">Home</Link>
+        <Link href="/shop" className="nav-link">Shop</Link>
+        <Link href="/contact" className="nav-link">Kontakt</Link>
+        <Link href="/versand" className="nav-link">Versand & Rückgabe</Link>
       </nav>
     </header>
   );

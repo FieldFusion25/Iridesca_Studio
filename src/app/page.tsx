@@ -1,66 +1,45 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { products } from '@/lib/products';
 
 export default function Home() {
-  // Flatten all product images into one big mosaic list (like Lucia Zolea's homepage)
-  const mosaic = products.flatMap((p) =>
-    p.images.map((src, i) => ({
-      src,
-      alt: p.name,
-      href: `/shop/${p.slug}`,
-      key: `${p.slug}-${i}`,
-    }))
-  );
-
   return (
-    <div>
-      {/* Hero: full-width editorial image, no text */}
-      <section className="px-4 md:px-8">
+    <section className="relative -mt-[128px] md:-mt-[148px] h-[100svh] min-h-[640px] w-full overflow-hidden bg-ink">
+      <Image
+        src="/img/hero.jpeg"
+        alt="Iridesca Studio — Perlmutt & Muschel"
+        fill
+        priority
+        quality={95}
+        sizes="100vw"
+        className="object-cover animate-hero-zoom"
+      />
+
+      <div className="absolute inset-x-0 top-0 h-44 md:h-56 bg-gradient-to-b from-pearl/50 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-ink/70 via-ink/25 to-transparent pointer-events-none" />
+
+      <div className="absolute inset-x-0 bottom-[14%] md:bottom-[18%] flex flex-col items-center text-center px-6 text-pearl">
+        <span className="micro-label text-pearl/80 animate-hero-fade [animation-delay:500ms] opacity-0">
+          Nürnberg · Seit 2024
+        </span>
+
+        <h1 className="font-serif text-[34px] md:text-6xl leading-[1.08] mt-5 md:mt-7 max-w-[720px] animate-hero-fade [animation-delay:800ms] opacity-0">
+          Perlmutt, handverlesen.<br />
+          <span className="italic text-pearl/90">Zeitlos, zerbrechlich, wahr.</span>
+        </h1>
+
         <Link
           href="/shop"
-          className="block relative w-full aspect-[4/3] md:aspect-[3/2] bg-ink overflow-hidden group"
+          className="group mt-10 md:mt-14 inline-flex items-center gap-4 px-10 md:px-12 py-4 border border-pearl/70 text-pearl micro-label backdrop-blur-[2px] hover:bg-pearl hover:text-ink hover:border-pearl transition-all duration-500 animate-hero-fade [animation-delay:1100ms] opacity-0"
         >
-          <Image
-            src="/img/hero.jpeg"
-            alt="Iridesca Studio"
-            fill
-            priority
-            quality={95}
-            sizes="100vw"
-            className="object-cover transition-transform duration-[1500ms] group-hover:scale-[1.02]"
-          />
+          Explore now
+          <span className="transition-transform duration-500 group-hover:translate-x-1.5">→</span>
         </Link>
-      </section>
+      </div>
 
-      {/* Mosaic grid of product photos — Lucia Zolea signature */}
-      <section className="px-4 md:px-8 mt-4 md:mt-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-          {mosaic.map((img) => (
-            <Link
-              key={img.key}
-              href={img.href}
-              className="relative aspect-[3/4] bg-shell overflow-hidden group"
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(min-width: 768px) 33vw, 50vw"
-                className="object-cover transition-transform duration-[1200ms] group-hover:scale-[1.03]"
-              />
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Small centered contact footer-strip (like Lucia Zolea) */}
-      <section className="mt-24 md:mt-32 pb-8 text-center">
-        <div className="micro-label text-stone space-y-2">
-          <p>+49 911 — AUF ANFRAGE</p>
-          <p>hallo@iridesca-studio.de</p>
-        </div>
-      </section>
-    </div>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-pearl/70 animate-hero-fade [animation-delay:1500ms] opacity-0">
+        <span className="text-[10px] tracking-[0.35em] uppercase mb-2">Scroll</span>
+        <span className="block w-px h-8 bg-pearl/50 animate-scroll-line origin-top" />
+      </div>
+    </section>
   );
 }
