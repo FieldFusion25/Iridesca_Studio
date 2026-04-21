@@ -19,13 +19,14 @@ export default function Home() {
       <section className="px-4 md:px-8">
         <Link
           href="/shop"
-          className="block relative w-full aspect-[16/10] md:aspect-[16/9] bg-ink overflow-hidden group"
+          className="block relative w-full aspect-[4/3] md:aspect-[3/2] bg-ink overflow-hidden group"
         >
           <Image
             src="/img/hero.jpeg"
             alt="Iridesca Studio"
             fill
             priority
+            quality={95}
             sizes="100vw"
             className="object-cover transition-transform duration-[1500ms] group-hover:scale-[1.02]"
           />
