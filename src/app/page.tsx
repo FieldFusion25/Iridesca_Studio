@@ -22,7 +22,7 @@ export default function Home() {
           className="block relative w-full aspect-[16/10] md:aspect-[16/9] bg-ink overflow-hidden group"
         >
           <Image
-            src="/img/hero.jpeg"
+            src="/img/hero2.jpeg"
             alt="Iridesca Studio"
             fill
             priority
