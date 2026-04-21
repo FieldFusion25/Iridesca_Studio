@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Product, formatPrice, products } from '@/lib/products';
 import { useCart } from '@/store/cart';
 import ProductCard from '@/components/ProductCard';
@@ -11,6 +11,23 @@ export default function ProductDetail({ product }: { product: Product }) {
   const add = useCart((s) => s.add);
   const [added, setAdded] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const total = product.images.length;
+
+  const prev = () => setActiveImage((i) => (i - 1 + total) % total);
+  const next = () => setActiveImage((i) => (i + 1) % total);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const delta = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 40) delta > 0 ? next() : prev();
+    touchStartX.current = null;
+  };
 
   const handleAdd = () => {
     if (product.soldOut) return;
@@ -41,17 +58,63 @@ export default function ProductDetail({ product }: { product: Product }) {
         <div className="grid md:grid-cols-2 gap-8 md:gap-16">
           {/* Gallery */}
           <div>
-            <div className="relative aspect-[4/5] bg-shell overflow-hidden mb-4">
-              <Image
-                src={product.images[activeImage]}
-                alt={product.name}
-                fill
-                priority
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
-              />
+            {/* Main slide */}
+            <div
+              className="relative aspect-[4/5] bg-shell overflow-hidden mb-4 select-none"
+              onTouchStart={onTouchStart}
+              onTouchEnd={onTouchEnd}
+            >
+              {product.images.map((src, i) => (
+                <div
+                  key={src}
+                  className="absolute inset-0 transition-opacity duration-500"
+                  style={{ opacity: i === activeImage ? 1 : 0, pointerEvents: i === activeImage ? 'auto' : 'none' }}
+                >
+                  <Image
+                    src={src}
+                    alt={i === 0 ? product.name : ''}
+                    fill
+                    priority={i === 0}
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+
+              {/* Arrows */}
+              {total > 1 && (
+                <>
+                  <button
+                    onClick={prev}
+                    aria-label="Previous image"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-pearl/80 hover:bg-pearl transition-colors"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M10 3L5 8l5 5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={next}
+                    aria-label="Next image"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-pearl/80 hover:bg-pearl transition-colors"
+                  >
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M6 3l5 5-5 5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+                </>
+              )}
+
+              {/* Counter */}
+              {total > 1 && (
+                <span className="absolute bottom-3 right-3 micro-label text-[10px] bg-pearl/80 px-2 py-1">
+                  {activeImage + 1} / {total}
+                </span>
+              )}
             </div>
-            {product.images.length > 1 && (
+
+            {/* Thumbnails */}
+            {total > 1 && (
               <div className="grid grid-cols-4 gap-3">
                 {product.images.map((src, i) => (
                   <button
@@ -60,7 +123,7 @@ export default function ProductDetail({ product }: { product: Product }) {
                     className={`relative aspect-[4/5] bg-shell overflow-hidden transition-opacity ${
                       activeImage === i
                         ? 'opacity-100 ring-1 ring-ink'
-                        : 'opacity-60 hover:opacity-100'
+                        : 'opacity-50 hover:opacity-100'
                     }`}
                   >
                     <Image

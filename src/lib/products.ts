@@ -32,6 +32,8 @@ export const products: Product[] = [
     ],
     images: [
       '/img/products/caviar-spoons-horn-pearl/01.jpg',
+      '/img/products/caviar-spoons-horn-pearl/02.jpg',
+      '/img/products/caviar-spoons-horn-pearl/03.jpg',
     ],
   },
   {
@@ -50,6 +52,9 @@ export const products: Product[] = [
     ],
     images: [
       '/img/products/pearl-curios-trio/01.jpg',
+      '/img/products/pearl-curios-trio/02.jpg',
+      '/img/products/pearl-curios-trio/03.jpg',
+      '/img/products/pearl-curios-trio/04.jpg',
     ],
   },
   {
@@ -69,6 +74,31 @@ export const products: Product[] = [
     ],
     images: [
       '/img/products/pearl-shell-clutch/01.jpg',
+      '/img/products/pearl-shell-clutch/02.jpg',
+      '/img/products/pearl-shell-clutch/03.jpg',
+      '/img/products/pearl-shell-clutch/04.jpg',
+    ],
+  },
+  {
+    slug: 'pearl-shell-clutch-mini',
+    name: 'Mother-of-Pearl Clutch — Mini',
+    price: 32000, // placeholder — to be confirmed
+    currency: 'eur',
+    description:
+      'The smaller sibling of our shell clutch — the same single piece of natural mother-of-pearl, the same chased silver-tone frame, scaled down to a more intimate proportion. Light enough to forget you are carrying it. The colour shifts from pale champagne to deep iridescent blue depending on where the light finds it.',
+    details: [
+      'Natural mother-of-pearl shell, single piece',
+      'Silver-tone metal frame with beaded ornament',
+      'Detachable link chain, approx. 100 cm',
+      'Fabric-lined interior',
+      'Approx. 13 × 9 × 2.5 cm',
+      'Vintage, mid-20th century',
+    ],
+    images: [
+      '/img/products/pearl-shell-clutch-mini/01.jpg',
+      '/img/products/pearl-shell-clutch-mini/02.jpg',
+      '/img/products/pearl-shell-clutch-mini/03.jpg',
+      '/img/products/pearl-shell-clutch-mini/04.jpg',
     ],
   },
   {
@@ -87,6 +117,9 @@ export const products: Product[] = [
     ],
     images: [
       '/img/products/pearl-teaspoons-four/01.jpg',
+      '/img/products/pearl-teaspoons-four/02.jpg',
+      '/img/products/pearl-teaspoons-four/03.jpg',
+      '/img/products/pearl-teaspoons-four/04.jpg',
     ],
   },
 ];
