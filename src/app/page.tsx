@@ -14,22 +14,24 @@ export default function Home() {
         className="object-cover animate-hero-zoom"
       />
 
-      <div className="absolute inset-x-0 top-0 h-44 md:h-56 bg-gradient-to-b from-pearl/50 to-transparent pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-ink/70 via-ink/25 to-transparent pointer-events-none" />
+      {/* Editorial darkening — top for header, bottom for CTA, plus a soft full vignette */}
+      <div className="absolute inset-0 bg-ink/15 pointer-events-none" />
+      <div className="absolute inset-x-0 top-0 h-48 md:h-64 bg-gradient-to-b from-ink/60 to-transparent pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-[60%] bg-gradient-to-t from-ink/80 via-ink/40 to-transparent pointer-events-none" />
 
-      <div className="absolute inset-x-0 bottom-[14%] md:bottom-[18%] flex flex-col items-center text-center px-6 text-pearl">
-        <span className="micro-label text-pearl/80 animate-hero-fade [animation-delay:500ms] opacity-0">
+      <div className="absolute inset-x-0 bottom-[16%] md:bottom-[20%] flex flex-col items-center text-center px-6 text-pearl">
+        <span className="micro-label text-pearl/75 animate-hero-fade [animation-delay:500ms] opacity-0">
           Nürnberg · Seit 2024
         </span>
 
-        <h1 className="font-serif text-[34px] md:text-6xl leading-[1.08] mt-5 md:mt-7 max-w-[720px] animate-hero-fade [animation-delay:800ms] opacity-0">
+        <h1 className="font-serif text-[34px] md:text-6xl leading-[1.08] mt-5 md:mt-7 max-w-[720px] animate-hero-fade [animation-delay:800ms] opacity-0 drop-shadow-[0_2px_20px_rgba(0,0,0,0.35)]">
           Perlmutt, handverlesen.<br />
           <span className="italic text-pearl/90">Zeitlos, zerbrechlich, wahr.</span>
         </h1>
 
         <Link
           href="/shop"
-          className="group mt-10 md:mt-14 inline-flex items-center gap-4 px-10 md:px-12 py-4 border border-pearl/70 text-pearl micro-label backdrop-blur-[2px] hover:bg-pearl hover:text-ink hover:border-pearl transition-all duration-500 animate-hero-fade [animation-delay:1100ms] opacity-0"
+          className="group mt-10 md:mt-14 inline-flex items-center gap-4 px-10 md:px-12 py-4 bg-ink text-pearl micro-label hover:bg-pearl hover:text-ink transition-colors duration-500 animate-hero-fade [animation-delay:1100ms] opacity-0 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
         >
           <Image
             src="/img/hero2.jpeg"
@@ -41,11 +43,6 @@ export default function Home() {
             className="object-cover transition-transform duration-[1500ms] group-hover:scale-[1.02]"
           />
         </Link>
-      </div>
-
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-pearl/70 animate-hero-fade [animation-delay:1500ms] opacity-0">
-        <span className="text-[10px] tracking-[0.35em] uppercase mb-2">Scroll</span>
-        <span className="block w-px h-8 bg-pearl/50 animate-scroll-line origin-top" />
       </div>
     </section>
   );
