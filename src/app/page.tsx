@@ -23,7 +23,7 @@ export default function Home() {
         >
           <Image
             src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=2800&q=90"
-            alt="Coquille Vintage"
+            alt="Iridesca Studio"
             fill
             priority
             sizes="100vw"
@@ -57,7 +57,7 @@ export default function Home() {
       <section className="mt-24 md:mt-32 pb-8 text-center">
         <div className="micro-label text-stone space-y-2">
           <p>+49 911 — AUF ANFRAGE</p>
-          <p>hallo@coquille-vintage.de</p>
+          <p>hallo@iridesca-studio.de</p>
         </div>
       </section>
     </div>

@@ -42,7 +42,7 @@ export default function Header() {
               fontWeight: 400,
             }}
           >
-            Coquille Vintage
+            Iridesca Studio
           </span>
         </Link>
 

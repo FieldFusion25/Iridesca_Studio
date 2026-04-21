@@ -25,7 +25,7 @@ export default function Versand() {
             <h2 className="font-serif text-2xl text-ink mb-3">Rückgabe</h2>
             <p>
               Sie haben 14 Tage Widerrufsrecht ab Erhalt der Ware. Schreiben
-              Sie uns eine kurze E-Mail an hallo@coquille-vintage.de — wir
+              Sie uns eine kurze E-Mail an hallo@iridesca-studio.de — wir
               kümmern uns um den Rest. Rücksendekosten trägt der Käufer, außer
               bei Transportschäden oder Mängeln.
             </p>

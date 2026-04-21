@@ -6,7 +6,7 @@ export default function Impressum() {
         <h1 className="font-serif text-4xl md:text-5xl mb-10">Angaben gemäß § 5 TMG</h1>
         <div className="prose text-[15px] leading-relaxed text-stone space-y-6">
           <p>
-            Coquille Vintage<br />
+            Iridesca Studio<br />
             [Straße Hausnummer]<br />
             90XXX Nürnberg<br />
             Deutschland
@@ -17,7 +17,7 @@ export default function Impressum() {
           </p>
           <p>
             <span className="micro-label text-ink block mb-1">Kontakt</span>
-            E-Mail: hallo@coquille-vintage.de
+            E-Mail: hallo@iridesca-studio.de
           </p>
           <p>
             <span className="micro-label text-ink block mb-1">Umsatzsteuer-ID</span>

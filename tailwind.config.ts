@@ -5,7 +5,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Coquille palette — warm off-white, sand, deep ink, driftwood
+        // Iridesca palette — warm off-white, sand, deep ink, driftwood
         shell: '#F5F0E8',
         pearl: '#FBF8F2',
         sand: '#E8DFD0',
