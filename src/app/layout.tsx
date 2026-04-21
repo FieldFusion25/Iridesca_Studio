@@ -27,7 +27,7 @@ const pinyon = Pinyon_Script({
 });
 
 export const metadata: Metadata = {
-  title: 'Coquille Vintage — Muscheltaschen & Vintage Objekte aus Perlmutt',
+  title: 'Iridesca Studio — Muscheltaschen & Vintage Objekte aus Perlmutt',
   description:
     'Kuratierte Vintage-Sammlung: Muscheltaschen, Perlmutt-Löffel, seltene Objekte. Jedes Stück handverlesen.',
 };

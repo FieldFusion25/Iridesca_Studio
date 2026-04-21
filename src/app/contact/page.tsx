@@ -32,10 +32,10 @@ export default function ContactPage() {
               <div>
                 <p className="micro-label mb-1">E-Mail</p>
                 <a
-                  href="mailto:hallo@coquille-vintage.de"
+                  href="mailto:hallo@iridesca-studio.de"
                   className="font-serif text-lg hover:text-stone transition-colors"
                 >
-                  hallo@coquille-vintage.de
+                  hallo@iridesca-studio.de
                 </a>
               </div>
               <div>

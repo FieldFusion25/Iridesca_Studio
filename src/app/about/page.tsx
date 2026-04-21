@@ -26,7 +26,7 @@ export default function AboutPage() {
               bei jemandem, der sie versteht.&ldquo;
             </p>
             <p className="text-[15px] leading-relaxed text-stone">
-              Coquille Vintage ist eine kleine, unabhängige Sammlung aus
+              Iridesca Studio ist eine kleine, unabhängige Sammlung aus
               Nürnberg. Wir suchen auf Flohmärkten in der Provence, bei
               Haushaltsauflösungen in Mailand, auf Auktionen in Wien. Was wir
               finden, restaurieren wir mit Vorsicht. Was wir nicht guten

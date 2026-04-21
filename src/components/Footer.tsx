@@ -7,10 +7,10 @@ export default function Footer() {
         <div className="micro-label text-stone mb-5 space-y-1.5">
           <p>+49 911 — AUF ANFRAGE</p>
           <a
-            href="mailto:hallo@coquille-vintage.de"
+            href="mailto:hallo@iridesca-studio.de"
             className="hover:text-ink transition-colors"
           >
-            hallo@coquille-vintage.de
+            hallo@iridesca-studio.de
           </a>
         </div>
 
@@ -33,7 +33,7 @@ export default function Footer() {
         </nav>
 
         <p className="mt-8 text-[11px] tracking-[0.2em] uppercase text-stone/70">
-          © {new Date().getFullYear()} Coquille Vintage
+          © {new Date().getFullYear()} Iridesca Studio
         </p>
       </div>
     </footer>

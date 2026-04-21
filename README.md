@@ -1,4 +1,4 @@
-# Coquille Vintage
+# Iridesca Studio
 
 Editorial Vintage-Shop für Muscheltaschen, Perlmutt-Löffel und handverlesene Vintage-Objekte. Gebaut im Stil von [luciazolea.com](https://www.luciazolea.com).
 
